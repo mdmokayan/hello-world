@@ -21,6 +21,7 @@ personrouter.post('/', async (req, res) => {
   }
 })
 
+//GET route to add person
 personrouter.get('/', async (req, res) => {
   try {
     const data = await person.find()
@@ -49,6 +50,7 @@ personrouter.get('/:worktype', async (req, res) => {
   }
 })
 
+//UPDATE route to add person
 personrouter.put('/:id', async (req, res) => {
   try {
     const personId = req.params.id //extract the id from the URL parameter
@@ -71,6 +73,7 @@ personrouter.put('/:id', async (req, res) => {
   }
 })
 
+//DELETE route to add person
 personrouter.delete('/:id', async (req, res) => {
   try {
     const personId = req.params.id //extract the id from the URL parameter
