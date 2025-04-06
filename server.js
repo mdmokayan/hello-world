@@ -25,4 +25,6 @@ app.use('/person', personRoute) // use the router
 const menuRoute = require('./routes/menuRouter')
 app.use('/menu', menuRoute) // use the router
 
-app.listen(8000)
+const PORT = process.env.PORT || 3000
+
+app.listen(PORT)
