@@ -35,7 +35,8 @@ personrouter.get('/', async (req, res) => {
 
 personrouter.get('/:worktype', async (req, res) => {
   try {
-    const workdata = req.params.worktype
+    const workdata = req.params.worktype //extract the work type from thr URL parameter
+
     if (workdata == 'chef' || workdata == 'manager' || workdata == 'waiter') {
       const responce = await person.find({ work: workdata })
 
@@ -50,7 +51,7 @@ personrouter.get('/:worktype', async (req, res) => {
   }
 })
 
-//UPDATE route to add person
+//PUT route to add person
 personrouter.put('/:id', async (req, res) => {
   try {
     const personId = req.params.id //extract the id from the URL parameter

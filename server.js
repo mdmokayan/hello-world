@@ -1,9 +1,8 @@
 var express = require('express')
 var app = express()
-var bodyParser = require('body-parser')
-
 const db = require('./db')
 
+var bodyParser = require('body-parser')
 app.use(bodyParser.json()) //req body
 
 //middleware function

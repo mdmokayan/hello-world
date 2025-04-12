@@ -48,4 +48,27 @@ menurouter.get('/:tastetype', async (req, res) => {
   }
 })
 
+//PUT route to add person
+menurouter.put('/:id', async (req, res) => {
+  try {
+    const menuId = req.params.id //extract the id from the URL parameter
+    const updateMenuId = req.body //update data for the person
+
+    const responce = await menuItem.findByIdAndUpdate(menuId, updateMenuId, {
+      new: true, //Return the update document
+      runValidators: true, //Run Mongoose validation
+    })
+
+    if (!responce) {
+      return res.status(404).json({ error: 'person not found' })
+    }
+
+    console.log('data updated')
+    res.status(200).json(responce)
+  } catch (error) {
+    console.log(error)
+    res.status(500).json({ error: 'Internal server error' })
+  }
+})
+
 module.exports = menurouter
